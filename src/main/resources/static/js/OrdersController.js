@@ -1,9 +1,7 @@
 
 
 
-var order1 ={
-	{"2":{"orderAmountsMap":{"PIZZA":2,"HOTDOG":1,"COKE":5},"tableNumber":1}}
-};
+var order1 ={"2":{"orderAmountsMap":{"PIZZA":2,"HOTDOG":1,"COKE":5},"tableNumber":2}};
 
 
 
