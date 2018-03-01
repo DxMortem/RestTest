@@ -5,24 +5,24 @@ var order1 ={"2":{"orderAmountsMap":{"PIZZA":2,"HOTDOG":1,"COKE":5},"tableNumber
 
 
 
-function addNewOrder(orden) {
+function addNewOrder(idmesa, orden) {
 	
 	var tope = new Array();
 	tope.push("Product");
 	tope.push("Quantity");
 	//tope.push("Price");
 	
-	for(ele in orden){
+	
 		var table = document.createElement("TABLE");
 		table.border = "1";
-		table.setAttribute("id","Table"+ele);
+		table.setAttribute("id","Table"+idmesa);
 	 
 		var columnCount = 2;
 			
 		var row = table.insertRow(-1);
 		var headerTable = document.createElement("TH");
 		headerTable.setAttribute("colspan","3");
-		headerTable.innerHTML = "Table "+ele;
+		headerTable.innerHTML = "Table "+idmesa;
 		row.appendChild(headerTable);
 
 		var row = table.insertRow(-1);
@@ -32,12 +32,12 @@ function addNewOrder(orden) {
 			row.appendChild(headerCell);
 		}
 	 
-		for (prod in orden[ele].orderAmountsMap) {
+		for (prod in orden.orderAmountsMap) {
 			row = table.insertRow(-1);
 			var cell = row.insertCell(-1);
 			cell.innerHTML = prod;
 			var cell = row.insertCell(-1);
-			cell.innerHTML = orden[ele].orderAmountsMap[prod];
+			cell.innerHTML = orden.orderAmountsMap[prod];
 			//var cell = row.insertCell(-1);
 			//cell.innerHTML = orden.products[i].price;
 		}
@@ -45,16 +45,17 @@ function addNewOrder(orden) {
 		var dvTable = document.getElementById("dvTables");
 		dvTable.appendChild(document.createElement("BR"));
 		dvTable.appendChild(table);
-	}
+	
 }
 
 function loadOrders(){
-	addNewOrder(order1);
+	addNewOrder(2,order1[2]);
 	axios.get("/orders")
 	.then(function (response){
 		var orders = response.data;
-		for(var i=0;i<orders.length;i++){
-				addNewOrder(orders[i]);
+		for(item in orders){
+			var prodList= orders[item]
+			addNewOrder(item, prodList);
 		}
 	})
 	.catch(function (error){
