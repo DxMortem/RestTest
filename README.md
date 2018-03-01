@@ -1,6 +1,6 @@
 # Heroku App Link
 
-[Heroku App](https://arsw-orderslab.herokuapp.com/)
+[Heroku App](https://restauranttest.herokuapp.com/)
 
 # FrontEnd - JavaScript Base Client
 
