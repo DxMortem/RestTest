@@ -39,7 +39,7 @@ function addNewOrder(orden) {
 			var cell = row.insertCell(-1);
 			cell.innerHTML = prod;
 			var cell = row.insertCell(-1);
-			cell.innerHTML = orden[eñe].orderAmountsMap[prod];
+			cell.innerHTML = orden[ele].orderAmountsMap[prod];
 			//var cell = row.insertCell(-1);
 			//cell.innerHTML = orden.products[i].price;
 		}
